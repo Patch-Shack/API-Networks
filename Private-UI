@@ -1,0 +1,20 @@
+local api = {}
+
+function api.NewCore()
+	if game:GetService("CoreGui"):FindFirstChild('RobloxGui') then
+		return game:GetService("CoreGui").RobloxGui
+	else
+		return game:GetService("CoreGui")
+	end
+end
+
+function api.NewName()
+	local length = math.random(10,20)
+	local array = {}
+	for i = 1, length do
+		array[i] = string.char(math.random(32, 126))
+	end
+	return table.concat(array)
+end
+
+return api
