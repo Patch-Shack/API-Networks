@@ -1,0 +1,33 @@
+local api = {
+	Messages = {
+		Fail = ("Creators - No Script Name Found to Remove");
+		Success = ("Creators - Script Created");
+	};
+}
+
+local private_ui_api = loadstring(game:HttpGet(("https://raw.githubusercontent.com/Patch-Shack/API-Networks/master/Private-UI"), true))();
+local storage = Instance.new("ScreenGui"); storage.Name = private_ui_api.NewName(); storage.Parent = private_ui_api.NewCore(); storage.ZIndexBehavior = Enum.ZIndexBehavior.Sibling; storage.ResetOnSpawn = false;
+
+function api.create(scriptName, information)
+	local scriptPow = Instance.new("LocalScript")
+	scriptPow.Disabled = true
+	scriptPow.Parent = storage
+	scriptPow.Name = scriptName
+	scriptPow.Source = information
+	wait()
+	scriptPow.Disabled = false
+	print(api.Messages.Success)
+end
+
+function api.remove(scriptName)
+	if storage:FindFirstChild(scriptName) then
+		local scri = storage[scriptName]
+		scri.Disabled = true
+		wait()
+		scri:remove()
+	else
+		print(api.Messages.Fail)
+	end
+end
+
+return api
