@@ -1,4 +1,6 @@
-local api = {}
+local api = {
+	RESULT = nil;
+}
 
 function api.inf()
 	return (1.79769313486232E+308d)
@@ -19,6 +21,19 @@ end
 
 function api.infuni()
 	return utf8.char(8734)
+end
+
+function api.smoothdrag(frameName)
+	if frameName:IsA("Frame") then
+		local function ABCDEFGH_fake_script() -- ScreenGui.smoothdrag 
+			local script = Instance.new("LocalScript", frameName)
+
+			local a=game:GetService("UserInputService")function drag(b)dragToggle=nil dragSpeed=0.23 dragInput=nil dragStart=nil dragPos=nil function updateInput(a)Delta=a.Position-dragStart Position=UDim2.new(startPos.X.Scale,startPos.X.Offset+Delta.X,startPos.Y.Scale,startPos.Y.Offset+Delta.Y)game:GetService("TweenService"):Create(b,TweenInfo.new(0.25),{Position=Position}):Play()end b.InputBegan:Connect(function(c)if(c.UserInputType==Enum.UserInputType.MouseButton1 or c.UserInputType==Enum.UserInputType.Touch)and a:GetFocusedTextBox()==nil then dragToggle=true dragStart=c.Position startPos=b.Position c.Changed:Connect(function()if c.UserInputState==Enum.UserInputState.End then dragToggle=false end end)end end)b.InputChanged:Connect(function(a)if a.UserInputType==Enum.UserInputType.MouseMovement or a.UserInputType==Enum.UserInputType.Touch then dragInput=a end end)game:GetService("UserInputService").InputChanged:Connect(function(a)if a==dragInput and dragToggle then updateInput(a)end end)end drag(script.Parent)
+		end
+		coroutine.wrap(ABCDEFGH_fake_script)()
+	else
+		api.RESULT = nil;
+	end
 end
 
 return api
