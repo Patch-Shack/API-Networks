@@ -1,0 +1,16 @@
+local api = {}
+
+function api.inf()
+	return (1.79769313486232E+308d)
+end
+
+
+function api.inf2()
+	return (math.pow(math.huge, math.huge) * math.huge)
+end
+
+function api.fastwait()
+	return game:GetService("RunService").Stepped:Wait()
+end
+
+return api

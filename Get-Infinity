@@ -1,8 +1,0 @@
-local api = {}
-
-function api.inf()
-	local infinity = math.pow(math.huge, math.huge) * math.huge
-	return infinity
-end
-
-return api
