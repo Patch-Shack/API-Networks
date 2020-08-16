@@ -13,4 +13,8 @@ function api.fastwait()
 	return game:GetService("RunService").Stepped:Wait()
 end
 
+function api.intvalueinf()
+	return 9223372036854775807
+end
+
 return api
