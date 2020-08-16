@@ -17,4 +17,8 @@ function api.intvalueinf()
 	return 9223372036854775807
 end
 
+function api.infuni()
+	return utf8.char(8734)
+end
+
 return api
